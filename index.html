@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Which langage do you prefer ?</h1>
+    <button id="HTML" onclick="alertAjax('HTML')">HTML</button>
+    <button id="PHP" onclick="alertAjax('PHP')">PHP</button>
+    <button id="JS" onclick="alertAjax('JS')">JS</button>
+    <button id="CSS"  onclick="alertAjax('CSS')">CSS</button>
+</body>
+</html>
+
+<script type="text/javascript">
+    function alertAjax(language) {
+        console.log(language);
+        $.ajax({
+            type: "POST",
+            url: "server.php",
+            data: {
+                value: language
+
+            },
+            success: function (res) {
+                alert(res);
+            }
+        });
+    }
+</script>
